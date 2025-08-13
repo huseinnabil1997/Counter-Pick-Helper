@@ -80,8 +80,8 @@ function parseTextRules(text: string): Rule[] {
 }
 
 // Parse JSON in object or array shape
-// 1) Object: { "Hou Yi": ["Luban No. 7"], "Arli": ["Luara", "Lady Sun"] }
-// 2) Array of rules: [{ enemies: ["Hou Yi"], counters: ["Luban No. 7"] }, ...]
+// 1) Object: { "Hero A": ["Counter A"], "Hero B": ["Counter B"] }
+// 2) Array of rules: [{ enemies: ["Hero A"], counters: ["Counter A"] }, ...]
 function parseJSONRules(text: string): Rule[] {
   const data = JSON.parse(text);
   const out: Rule[] = [];
@@ -484,7 +484,7 @@ export default function App() {
                     fullWidth
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Contoh: Hou Yi, Arli, Flowborn Tank"
+                    placeholder="Contoh: Hero A, Hero B"
                     variant="outlined"
                     sx={{ flex: 1 }}
                   />
@@ -783,9 +783,9 @@ export default function App() {
                   </Typography>
                   <Paper sx={{ p: 2, bgcolor: 'background.default', fontFamily: 'monospace', fontSize: '0.875rem' }}>
                     {`Contoh:
-Hou Yi - Luban No. 7
-Loong, Flowborn Tank - Arli
-Luna, Jing, Lam, Shangguan - Liang`}
+Hero A - Counter A
+Hero B - Counter B
+`}
                   </Paper>
                 </>
               ) : (
@@ -796,15 +796,10 @@ Luna, Jing, Lam, Shangguan - Liang`}
                   <Paper sx={{ p: 2, bgcolor: 'background.default', fontFamily: 'monospace', fontSize: '0.875rem' }}>
                     {`// Object mapping
 {
-  "Hou Yi": ["Luban No. 7"],
-  "Loong, Flowborn Tank": ["Arli"]
+  "Hero A": ["Counter A"],
+  "Hero B": ["Counter B"]
 }
-
-// atau Array aturan
-[
-  {"enemies": ["Hou Yi"], "counters": ["Luban No. 7"]},
-  {"enemies": ["Loong", "Flowborn Tank"], "counters": ["Arli"]}
-]`}
+`}
                   </Paper>
                 </>
               )}
