@@ -160,21 +160,135 @@ function scoreCounters(
 
 // -------------------- Default Seed Rules --------------------
 const SEED_TEXT = `
-Popol & Kupa, Moskov, Faramis, Fredrinn, Valentina - Hanabi
-Karina, Hanabi, Ixia, Melissa, Gatot - Granger
-Claude, Belerick, Gatot, Bruno, Ling - Lesley
-Faramis, Diggie, Cyclops, Rafaela, Kaja - Layla
-Irithel, Faramis, Saber, Moskov, Xavier - Miya
-Benedetta, Argus, Sun, Minsitthar, X-Borg - Irithel
-Gloo, Hanzo, Fanny, Benedetta, Joy - Moskov
-Sun, Balmond, Alice, Hanzo, Atlas - Kimmy
-Estes, Esmeralda, Floryn, Bane, Mathilda - Ixia
-Atlas, Ixia, Gloo, Yin, Guinevere - Wanwan
-Belerick, Lolita, Karina, Nolan, Barats - Clint
-Lolita, Sun, Mathilda, Alucard, Natalia - Melissa
-Belerick, Katarina, Fanny, Irithel, Natalia - Brody
-Kaja, Harley, Harith, Diggie, Cyclops - Popol & Kupa
-Lolita, Atlas, Uranus, Irithel, Paquito - Harith
+Hanabi - Popol & Kupa, Moskov, Faramis, Valentina
+Granger - Karina, Hanabi, Ixia, Melissa, Gatot
+Lesley - Claude, Belerick, Gatot, Bruno, Ling
+Layla - Faramis, Diggie, Cyclops, Rafaela, Kaja
+Miya - Irithel, Faramis, Saber, Moskov, Xavier
+Irithel - Benedetta, Argus, Sun, Minsitthar, X-Borg
+Moskov - Gloo, Hanzo, Fanny, Benedetta, Joy
+Kimmy - Sun, Balmond, Alice, Hanzo, Atlas
+Ixia - Estes, Esmeralda, Floryn, Bane, Mathilda
+Wanwan - Atlas, Ixia, Gloo, Yin, Guinevere
+Clint - Belerick, Lolita, Karina, Nolan, Barats
+Melissa - Lolita, Sun, Mathilda, Alucard, Natalia
+Brody - Belerick, Katarina, Fanny, Irithel, Natalia
+Popol & Kupa - Kaja, Harley, Harith, Diggie, Cyclops
+Harith - Lolita, Atlas, Uranus, Irithel, Paquito
+Franco - Angela, Floryn, Diggie, Fanny, Estes
+Chang'e - Balmond, Masha, Diggie, Novaria, Lancelot
+Alpha - Phoveus, Alucard, Barats, Eudora, Odette
+Lancelot - Atlas, Baxia, Alpha, Johnson, Khufra
+Angela - Alice, Novaria, Balmond, Uranus, Carmilla
+Gatot - Miya, Zilong, Layla, Hanabi, Odette
+Pharsa - Lolita, Hanabi, Phoveus, Belerick, Melissa
+Badang - Sun, Fanny, Aldous, Zilong, Silvanna
+Nana - Odette, Eudora, Alucard, Saber, Freya
+Sun - Masha, Cici, Eudora, Diggie, Harley
+Tigreal - Zilong, Silvanna, Layla, Aulus, Eudora
+Alucard - Sun, Mathilda, Natalia, Yve, Gloo
+Chou - X-Borg, Gord, Fanny, Natalia, Ixia
+Dyrroth - Esmeralda, Faramis, Alucard, Alice, Uranus
+Gusion - X-Borg, Suyou, Valir, Natalia
+Zilong - X-Borg, Angela, Xavier, Diggie, Novaria
+Cici - Benedetta, Thamuz, Balmond, Hylos, Akai
+Hayabusa - Carmilla, Zhuxin, Aamon, Xavier, X-Borg
+Zetian - Lolita, Natalia, Tigreal, Helcurt, Benedetta
+Cecilion - Lolita, Faramis, Edith, Thamuz, Luo Yi
+Aamon - Cici, Ling, Masha, Xavier, Hilda
+Belerick - Miya, Melissa, Hanabi, Johnson, Silvanna
+Vexana - Lolita, Gloo, Zhask, Sun, Odette
+Floryn - Faramis, Belerick, X-Borg, Phoveus, Argus
+Roger - Balmond, Argus, Harley, Aldous, Gusion
+Grock - Silvanna, Atlas, Khufra, Tigreal, Johnson
+Selena - X-Borg, Lylia, Vale, Ixia, Alpha
+Kadita - Lolita, Ixia, Atlas, Johnson, Hayabusa
+Eudora - Irithel, Harley, Zilong, Hayabusa, Valentina
+Saber - Natalia, Nolan, Hayabusa, Ling, Benedetta
+Johnson - Layla, Eudora, Saber, Valentina, Zilong
+Vale - Odette, Bane, Faramis, Zilong, Aulus
+X-Borg - Barats, Terizla, Ruby, Cici, Baxia
+Arlott - X-Borg, Ruby, Khufra, Esmeralda, Valir
+Natan - Balmond, Gloo, Sun, Zhask, Johnson
+Yu Zhong - Popol & Kupa, Gloo, Lolita, Esmeralda, Minsitthar
+Julian - Faramis, Diggie, Sun, Esmeralda, Uranus
+Uranus - Argus, Yi Sun-shin, Zhask, Faramis, Zetian
+Valir - Fredrinn, Thamuz, Barats, Alucard, Aulus
+Phoveus - Wanwan, Ruby, Valentina, Harith, Lukas
+Lapu-Lapu - Argus, Popol & Kupa, Atlas, Sun, Hanabi
+Xavier - Belerick, Barats, Baxia, Terizla, Gloo
+Yi Sun-shin - Melissa, Balmond, Khufra, Hanzo, Valir
+Yin - Estes, Diggie, Floryn, Angela, Alucard
+Fredrinn - Alucard, Esmeralda, Argus, Silvanna, Lunox
+Estes - Faramis, Cici, Cyclops, Lesley, Diggie
+Minsitthar - Freya, Harith, Phoveus, Estes, Silvanna
+Cyclops - Joy, Wanwan, Natalia, Valentina, Mathilda
+Ling - Atlas, Balmond, Hanzo, Gloo, Alpha
+Ruby - Sun, Argus, Gloo, Masha, Silvanna
+Odette - Aamon, Kaja, Cici, Joy, Natalia
+Karina - Kimmy, Helcurt, Wanwan, Natalia, Zilong
+Beatrix - Barats, Hanabi, Edith, Estes, Chip
+Gord - Barats, Phoveus, Baxia, Lolita, Terizla
+Karrie - Alice, Akai, Barats, Fredrinn, Uranus
+Fanny - Gloo, Atlas, Lolita, Granger, Balmond
+Esmeralda - Lolita, Argus, Lapu-Lapu, Freya, Mathilda
+Helcurt - Xavier, Layla, Lolita, Harley, Bane
+Kalea - Kaja, Claude, Esmeralda, Hilda, Paquito
+Claude - Lolita, Atlas, Hylos, Ixia, Balmond
+Kagura - Lolita, Karina, Nana, Hanzo, Silvanna
+Harley - Alice, Martis, Thamuz, Aulus, Balmond
+Carmilla - Chip, Popol & Kupa, Silvanna, Atlas, Miya
+Gloo - Aamon, Selena, Hylos, Lolita, Brody
+Guinevere - Uranus, X-Borg, Yve, Floryn, Estes
+Lukas - Faramis, Masha, Arlott, Silvanna, Saber
+Rafaela - Natalia, Alice, Valir, Kaja, Cici
+Jawhead - Zilong, Arlott, Paquito, Bruno, Floryn
+Silvanna - Kaja, Aamon, Sun, Angela, Cyclops
+Argus - Masha, Saber, Minsitthar, Odette, Guinevere
+Akai - Argus, Masha, Tigreal, Atlas, Luo Yi
+Hylos - Eudora, Yin, Layla, Nana, Barats
+Novaria - Faramis, Luo Yi, Leomord, Yve, Tigreal
+Benedetta - Valir, Silvanna, Alpha, Thamuz, Atlas
+Hilda - Nolan, Novaria, Yi Sun-shin, Helcurt, Granger
+Aldous - Xavier, Sun, Diggie, Uranus, X-Borg
+Balmond - Saber, Martis, Faramis, Eudora, Lukas
+Terizla - Masha, Argus, Sun, Johnson, Eudora
+Thamuz - Alucard, Masha, Alice, Kagura, Lukas
+Atlas - Layla, Estes, Aulus, Eudora, Popol & Kupa
+Hanzo - Ixia, Kaja, Barats, Bane, Faramis
+Martis - Masha, Saber, Faramis, Chip, Alucard
+Zhask - Diggie, Zhuxin, Wanwan, Harley, Arlott
+Suyou - Faramis, Sun, Argus, Lylia, Aulus
+Bruno - Wanwan, Benedetta, Ling, Irithel, Fanny
+Aurora - Lolita, Eudora, Aulus, Odette, Freya
+Minotaur - Lolita, Khufra, Johnson, Silvanna, Argus
+Lylia - Johnson, Dyrroth, Alpha, Balmond, Miya
+Joy - Atlas, X-Borg, Baxia, Lolita, Luo Yi
+Freya - Mathilda, Diggie, Harith, Masha, Estes
+Khufra - Yin, Silvanna, Guinevere, Eudora, Karina
+Luo Yi - Aulus, Estes, Edith, Faramis, Cyclops
+Lunox - Esmeralda, Gloo, Wanwan, Karina, Balmond
+Bane - Faramis, Phoveus, Odette, Wanwan, Khufra
+Natalia - Hanzo, Xavier, Nolan, Diggie, Ling
+Zhuxin - Lolita, Aamon, Thamuz, Natalia, Edith
+Yve - Lolita, Barats, Nana, Hylos, Bane
+Nolan - Alice, Estes, Popol & Kupa, Rafaela, Floryn
+Mathilda - Balmond, Lylia, X-Borg, Benedetta, Terizla
+Paquito - Faramis, X-Borg, Natalia, Nolan, Fanny
+Khaleed - Zilong, Yin, Harley, Hylos, Hanabi
+Baxia - Barats, Zilong, Kimmy, Chang'e, Phoveus
+Edith - Silvanna, Odette, Aldous, Zilong, Miya
+Aulus - Alice, Aldous, Chip, Sun, Lunox
+Alice - Atlas, Tigreal, Khufra, Barats, Gloo
+Diggie - Zhuxin, Atlas, Alice, Yve, Valir
+Leomord - Lolita, Natalia, Saber, Silvanna, Belerick
+Lolita - Cyclops, Harley, Bane, Kimmy, Baxia
+Valentina - Atlas, Lolita, Argus, X-Borg, Benedetta
+Barats - Alucard, Eudora, Argus, Silvanna, Paquito
+Masha - Yu Zhong, Fanny, Guinevere, Valentina, Silvanna
+Kaja - Akai, Harith, Argus, Balmond, Belerick
+Chip - Lolita, Leomord, Silvanna, Mathilda, Aldous
+Faramis - Gloo, Lolita, Khufra, Wanwan, Lunox
 Hou Yi - Luban No. 7
 Luban No. 7 - Fang
 Arli - Luara, Lady Sun
