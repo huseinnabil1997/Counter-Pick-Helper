@@ -212,12 +212,12 @@ Arlott - XBorg, Ruby, Khufra, Esmeralda, Valir
 Natan - Balmond, Gloo, Sun, Zhask, Johnson
 Yu Zhong - Popol & Kupa, Gloo, Lolita, Esmeralda, Minsitthar
 Julian - Faramis, Diggie, Sun, Esmeralda, Uranus
-Uranus - Argus, Yi Sun-shin, Zhask, Faramis, Zetian
+Uranus - Argus, Yi Sunshin, Zhask, Faramis, Zetian
 Valir - Fredrinn, Thamuz, Barats, Alucard, Aulus
 Phoveus - Wanwan, Ruby, Valentina, Harith, Lukas
 LapuLapu - Argus, Popol & Kupa, Atlas, Sun, Hanabi
 Xavier - Belerick, Barats, Baxia, Terizla, Gloo
-Yi Sun-shin - Melissa, Balmond, Khufra, Hanzo, Valir
+Yi Sunshin - Melissa, Balmond, Khufra, Hanzo, Valir
 Yin - Estes, Diggie, Floryn, Angela, Alucard
 Fredrinn - Alucard, Esmeralda, Argus, Silvanna, Lunox
 Estes - Faramis, Cici, Cyclops, Lesley, Diggie
@@ -239,7 +239,7 @@ Kagura - Lolita, Karina, Nana, Hanzo, Silvanna
 Harley - Alice, Martis, Thamuz, Aulus, Balmond
 Carmilla - Chip, Popol & Kupa, Silvanna, Atlas, Miya
 Gloo - Aamon, Selena, Hylos, Lolita, Brody
-Guinevere - Uranus, X-Borg, Yve, Floryn, Estes
+Guinevere - Uranus, XBorg, Yve, Floryn, Estes
 Lukas - Faramis, Masha, Arlott, Silvanna, Saber
 Rafaela - Natalia, Alice, Valir, Kaja, Cici
 Jawhead - Zilong, Arlott, Paquito, Bruno, Floryn
@@ -249,8 +249,8 @@ Akai - Argus, Masha, Tigreal, Atlas, Luo Yi
 Hylos - Eudora, Yin, Layla, Nana, Barats
 Novaria - Faramis, Luo Yi, Leomord, Yve, Tigreal
 Benedetta - Valir, Silvanna, Alpha, Thamuz, Atlas
-Hilda - Nolan, Novaria, Yi Sun-shin, Helcurt, Granger
-Aldous - Xavier, Sun, Diggie, Uranus, X-Borg
+Hilda - Nolan, Novaria, Yi Sunshin, Helcurt, Granger
+Aldous - Xavier, Sun, Diggie, Uranus, XBorg
 Balmond - Saber, Martis, Faramis, Eudora, Lukas
 Terizla - Masha, Argus, Sun, Johnson, Eudora
 Thamuz - Alucard, Masha, Alice, Kagura, Lukas
@@ -263,7 +263,7 @@ Bruno - Wanwan, Benedetta, Ling, Irithel, Fanny
 Aurora - Lolita, Eudora, Aulus, Odette, Freya
 Minotaur - Lolita, Khufra, Johnson, Silvanna, Argus
 Lylia - Johnson, Dyrroth, Alpha, Balmond, Miya
-Joy - Atlas, X-Borg, Baxia, Lolita, Luo Yi
+Joy - Atlas, XBorg, Baxia, Lolita, Luo Yi
 Freya - Mathilda, Diggie, Harith, Masha, Estes
 Khufra - Yin, Silvanna, Guinevere, Eudora, Karina
 Luo Yi - Aulus, Estes, Edith, Faramis, Cyclops
@@ -273,8 +273,8 @@ Natalia - Hanzo, Xavier, Nolan, Diggie, Ling
 Zhuxin - Lolita, Aamon, Thamuz, Natalia, Edith
 Yve - Lolita, Barats, Nana, Hylos, Bane
 Nolan - Alice, Estes, Popol & Kupa, Rafaela, Floryn
-Mathilda - Balmond, Lylia, X-Borg, Benedetta, Terizla
-Paquito - Faramis, X-Borg, Natalia, Nolan, Fanny
+Mathilda - Balmond, Lylia, XBorg, Benedetta, Terizla
+Paquito - Faramis, XBorg, Natalia, Nolan, Fanny
 Khaleed - Zilong, Yin, Harley, Hylos, Hanabi
 Baxia - Barats, Zilong, Kimmy, Chang'e, Phoveus
 Edith - Silvanna, Odette, Aldous, Zilong, Miya
@@ -283,7 +283,7 @@ Alice - Atlas, Tigreal, Khufra, Barats, Gloo
 Diggie - Zhuxin, Atlas, Alice, Yve, Valir
 Leomord - Lolita, Natalia, Saber, Silvanna, Belerick
 Lolita - Cyclops, Harley, Bane, Kimmy, Baxia
-Valentina - Atlas, Lolita, Argus, X-Borg, Benedetta
+Valentina - Atlas, Lolita, Argus, XBorg, Benedetta
 Barats - Alucard, Eudora, Argus, Silvanna, Paquito
 Masha - Yu Zhong, Fanny, Guinevere, Valentina, Silvanna
 Kaja - Akai, Harith, Argus, Balmond, Belerick
