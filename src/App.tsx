@@ -165,7 +165,7 @@ Granger - Karina, Hanabi, Ixia, Melissa, Gatot
 Lesley - Claude, Belerick, Gatot, Bruno, Ling
 Layla - Faramis, Diggie, Cyclops, Rafaela, Kaja
 Miya - Irithel, Faramis, Saber, Moskov, Xavier
-Irithel - Benedetta, Argus, Sun, Minsitthar, X-Borg
+Irithel - Benedetta, Argus, Sun, Minsitthar, XBorg
 Moskov - Gloo, Hanzo, Fanny, Benedetta, Joy
 Kimmy - Sun, Balmond, Alice, Hanzo, Atlas
 Ixia - Estes, Esmeralda, Floryn, Bane, Mathilda
@@ -187,35 +187,35 @@ Nana - Odette, Eudora, Alucard, Saber, Freya
 Sun - Masha, Cici, Eudora, Diggie, Harley
 Tigreal - Zilong, Silvanna, Layla, Aulus, Eudora
 Alucard - Sun, Mathilda, Natalia, Yve, Gloo
-Chou - X-Borg, Gord, Fanny, Natalia, Ixia
+Chou - XBorg, Gord, Fanny, Natalia, Ixia
 Dyrroth - Esmeralda, Faramis, Alucard, Alice, Uranus
-Gusion - X-Borg, Suyou, Valir, Natalia
-Zilong - X-Borg, Angela, Xavier, Diggie, Novaria
+Gusion - XBorg, Suyou, Valir, Natalia
+Zilong - XBorg, Angela, Xavier, Diggie, Novaria
 Cici - Benedetta, Thamuz, Balmond, Hylos, Akai
-Hayabusa - Carmilla, Zhuxin, Aamon, Xavier, X-Borg
+Hayabusa - Carmilla, Zhuxin, Aamon, Xavier, XBorg
 Zetian - Lolita, Natalia, Tigreal, Helcurt, Benedetta
 Cecilion - Lolita, Faramis, Edith, Thamuz, Luo Yi
 Aamon - Cici, Ling, Masha, Xavier, Hilda
 Belerick - Miya, Melissa, Hanabi, Johnson, Silvanna
 Vexana - Lolita, Gloo, Zhask, Sun, Odette
-Floryn - Faramis, Belerick, X-Borg, Phoveus, Argus
+Floryn - Faramis, Belerick, XBorg, Phoveus, Argus
 Roger - Balmond, Argus, Harley, Aldous, Gusion
 Grock - Silvanna, Atlas, Khufra, Tigreal, Johnson
-Selena - X-Borg, Lylia, Vale, Ixia, Alpha
+Selena - XBorg, Lylia, Vale, Ixia, Alpha
 Kadita - Lolita, Ixia, Atlas, Johnson, Hayabusa
 Eudora - Irithel, Harley, Zilong, Hayabusa, Valentina
 Saber - Natalia, Nolan, Hayabusa, Ling, Benedetta
 Johnson - Layla, Eudora, Saber, Valentina, Zilong
 Vale - Odette, Bane, Faramis, Zilong, Aulus
-X-Borg - Barats, Terizla, Ruby, Cici, Baxia
-Arlott - X-Borg, Ruby, Khufra, Esmeralda, Valir
+XBorg - Barats, Terizla, Ruby, Cici, Baxia
+Arlott - XBorg, Ruby, Khufra, Esmeralda, Valir
 Natan - Balmond, Gloo, Sun, Zhask, Johnson
 Yu Zhong - Popol & Kupa, Gloo, Lolita, Esmeralda, Minsitthar
 Julian - Faramis, Diggie, Sun, Esmeralda, Uranus
 Uranus - Argus, Yi Sun-shin, Zhask, Faramis, Zetian
 Valir - Fredrinn, Thamuz, Barats, Alucard, Aulus
 Phoveus - Wanwan, Ruby, Valentina, Harith, Lukas
-Lapu-Lapu - Argus, Popol & Kupa, Atlas, Sun, Hanabi
+LapuLapu - Argus, Popol & Kupa, Atlas, Sun, Hanabi
 Xavier - Belerick, Barats, Baxia, Terizla, Gloo
 Yi Sun-shin - Melissa, Balmond, Khufra, Hanzo, Valir
 Yin - Estes, Diggie, Floryn, Angela, Alucard
@@ -231,7 +231,7 @@ Beatrix - Barats, Hanabi, Edith, Estes, Chip
 Gord - Barats, Phoveus, Baxia, Lolita, Terizla
 Karrie - Alice, Akai, Barats, Fredrinn, Uranus
 Fanny - Gloo, Atlas, Lolita, Granger, Balmond
-Esmeralda - Lolita, Argus, Lapu-Lapu, Freya, Mathilda
+Esmeralda - Lolita, Argus, LapuLapu, Freya, Mathilda
 Helcurt - Xavier, Layla, Lolita, Harley, Bane
 Kalea - Kaja, Claude, Esmeralda, Hilda, Paquito
 Claude - Lolita, Atlas, Hylos, Ixia, Balmond
