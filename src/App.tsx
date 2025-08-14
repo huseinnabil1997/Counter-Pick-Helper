@@ -27,6 +27,7 @@ import {
   IconButton,
   Alert,
   Checkbox,
+  Pagination,
 } from "@mui/material";
 import {
   Close as CloseIcon,
@@ -432,6 +433,8 @@ export default function App() {
   const [selectedRules, setSelectedRules] = useState<Set<number>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   // persist
   useEffect(() => {
@@ -512,6 +515,18 @@ export default function App() {
     });
   }, [rules, searchQuery]);
 
+  const paginatedRules = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return filteredRules.slice(startIndex, endIndex);
+  }, [filteredRules, currentPage]);
+
+  const totalPages = Math.ceil(filteredRules.length / itemsPerPage);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
+
   function handleImport() {
     try {
       const parsed = importMode === "text" ? parseTextRules(importText) : parseJSONRules(importText);
@@ -577,7 +592,19 @@ export default function App() {
 
   function handleSelectAll(checked: boolean) {
     if (checked) {
-      setSelectedRules(new Set(rules.map((_, index) => index)));
+      const filteredIndices = new Set<number>();
+      filteredRules.forEach(rule => {
+        const originalIdx = rules.findIndex(r =>
+          r.enemies.length === rule.enemies.length &&
+          r.counters.length === rule.counters.length &&
+          r.enemies.every((enemy, i) => enemy === rule.enemies[i]) &&
+          r.counters.every((counter, i) => counter === r.counters[i])
+        );
+        if (originalIdx !== -1) {
+          filteredIndices.add(originalIdx);
+        }
+      });
+      setSelectedRules(filteredIndices);
     } else {
       setSelectedRules(new Set());
     }
@@ -878,7 +905,7 @@ export default function App() {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {filteredRules.map((r, idx) => {
+                      {paginatedRules.map((r, idx) => {
                         // Find original index for selection handling
                         const originalIdx = rules.findIndex(rule =>
                           rule.enemies.length === r.enemies.length &&
@@ -950,6 +977,30 @@ export default function App() {
                     </TableBody>
                   </Table>
                 </TableContainer>
+
+                {/* Tambahkan Pagination */}
+                {filteredRules.length > itemsPerPage && (
+                  <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
+                    <Pagination
+                      count={totalPages}
+                      page={currentPage}
+                      onChange={(event, page) => setCurrentPage(page)}
+                      color="primary"
+                      size="large"
+                      showFirstButton
+                      showLastButton
+                    />
+                  </Box>
+                )}
+
+                {/* Tambahkan info pagination */}
+                {filteredRules.length > 0 && (
+                  <Box sx={{ mt: 2, textAlign: 'center' }}>
+                    <Typography variant="body2" color="text.secondary">
+                      Menampilkan {Math.min((currentPage - 1) * itemsPerPage + 1, filteredRules.length)} - {Math.min(currentPage * itemsPerPage, filteredRules.length)} dari {filteredRules.length} aturan
+                    </Typography>
+                  </Box>
+                )}
               </CardContent>
             </Card>
           </Box>
