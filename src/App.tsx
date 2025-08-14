@@ -444,7 +444,7 @@ export default function App() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "hok-counter-rules.json";
+    a.download = "counter-rules.json";
     a.click();
     URL.revokeObjectURL(url);
   }
