@@ -131,7 +131,7 @@ function scoreCounters(
   lookup: Record<string, string[]>,
   enemyList: string[],
   strategy: "frequency" | "intersect"
-) {
+): { name: string; score: number }[] {
   const normalizedEnemies = enemyList.map(normalize);
   const perEnemyCounters = normalizedEnemies.map((e) => lookup[e] || []);
 
@@ -142,7 +142,9 @@ function scoreCounters(
       const s = new Set(perEnemyCounters[i]);
       for (const val of Array.from(base)) if (!s.has(val)) base.delete(val);
     }
-    return Array.from(base).sort((a, b) => a.localeCompare(b));
+    return Array.from(base)
+      .sort((a, b) => a.localeCompare(b))
+      .map(name => ({ name, score: enemyList.length }));
   }
 
   // frequency strategy: rank by how many enemies a hero counters
@@ -152,12 +154,27 @@ function scoreCounters(
   }
   const ranked = Object.entries(freq)
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([name]) => name);
+    .map(([name, score]) => ({ name, score }));
   return ranked;
 }
 
 // -------------------- Default Seed Rules --------------------
 const SEED_TEXT = `
+Popol & Kupa, Moskov, Faramis, Fredrinn, Valentina - Hanabi
+Karina, Hanabi, Ixia, Melissa, Gatot - Granger
+Claude, Belerick, Gatot, Bruno, Ling - Lesley
+Faramis, Diggie, Cyclops, Rafaela, Kaja - Layla
+Irithel, Faramis, Saber, Moskov, Xavier - Miya
+Benedetta, Argus, Sun, Minsitthar, X-Borg - Irithel
+Gloo, Hanzo, Fanny, Benedetta, Joy - Moskov
+Sun, Balmond, Alice, Hanzo, Atlas - Kimmy
+Estes, Esmeralda, Floryn, Bane, Mathilda - Ixia
+Atlas, Ixia, Gloo, Yin, Guinevere - Wanwan
+Belerick, Lolita, Karina, Nolan, Barats - Clint
+Lolita, Sun, Mathilda, Alucard, Natalia - Melissa
+Belerick, Katarina, Fanny, Irithel, Natalia - Brody
+Kaja, Harley, Harith, Diggie, Cyclops - Popol & Kupa
+Lolita, Atlas, Uranus, Irithel, Paquito - Harith
 Hou Yi - Luban No. 7
 Luban No. 7 - Fang
 Arli - Luara, Lady Sun
@@ -208,6 +225,26 @@ Mozi - Shakeer
 `;
 
 const SEED_RULES: Rule[] = parseTextRules(SEED_TEXT);
+
+// Fungsi untuk mencari hero yang mirip
+function findSimilarHeroes(input: string, heroList: string[]): string[] {
+  const normalizedInput = normalize(input);
+  if (!normalizedInput) return [];
+
+  return heroList
+    .filter(hero => normalize(hero).includes(normalizedInput))
+    .slice(0, 5); // Batasi 5 saran
+}
+
+// Fungsi untuk mendapatkan semua hero unik dari rules
+function getAllHeroesFromRules(rules: Rule[]): string[] {
+  const heroSet = new Set<string>();
+  rules.forEach(rule => {
+    rule.enemies.forEach(enemy => heroSet.add(enemy.trim()));
+    rule.counters.forEach(counter => heroSet.add(counter.trim()));
+  });
+  return Array.from(heroSet).sort();
+}
 
 // -------------------- Theme --------------------
 const theme = createTheme({
@@ -280,6 +317,7 @@ export default function App() {
   const [showImport, setShowImport] = useState(false);
   const [selectedRules, setSelectedRules] = useState<Set<number>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   // persist
   useEffect(() => {
@@ -304,6 +342,12 @@ export default function App() {
 
   const lookup = useMemo(() => toLookup(rules), [rules]);
 
+  // Gabungkan hero dari rules dan daftar default
+  // Ambil semua hero dari rules yang ada
+  const allAvailableHeroes = useMemo(() => {
+    return getAllHeroesFromRules(rules);
+  }, [rules]);
+
   const enemies = useMemo(
     () =>
       input
@@ -314,9 +358,16 @@ export default function App() {
   );
 
   const suggestions = useMemo(() => {
-    if (!enemies.length) return [] as string[];
+    if (!enemies.length) return [] as { name: string; score: number }[];
     return scoreCounters(lookup, enemies, strategy);
   }, [lookup, enemies, strategy]);
+
+  // Autocorrect suggestions dari data yang diimpor
+  const inputSuggestions = useMemo(() => {
+    const lastInput = input.split(',').pop()?.trim() || '';
+    if (lastInput.length < 2) return [];
+    return findSimilarHeroes(lastInput, allAvailableHeroes);
+  }, [input, allAvailableHeroes]);
 
   const matchedDetails = useMemo(() => {
     // for each enemy show which rules matched
@@ -480,14 +531,64 @@ export default function App() {
                 </Typography>
 
                 <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, mb: 3 }}>
-                  <TextField
-                    fullWidth
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder="Contoh: Hero A, Hero B"
-                    variant="outlined"
-                    sx={{ flex: 1 }}
-                  />
+                  <Box sx={{ flex: 1, position: 'relative' }}>
+                    <TextField
+                      fullWidth
+                      value={input}
+                      onChange={(e) => {
+                        setInput(e.target.value);
+                        setShowSuggestions(true);
+                      }}
+                      onBlur={() => {
+                        // Delay untuk memungkinkan klik pada suggestion
+                        setTimeout(() => setShowSuggestions(false), 200);
+                      }}
+                      onFocus={() => setShowSuggestions(true)}
+                      placeholder="Contoh: Hero A, Hero B"
+                      variant="outlined"
+                    />
+
+                    {/* Autocorrect Suggestions */}
+                    {showSuggestions && inputSuggestions.length > 0 && (
+                      <Paper
+                        sx={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: 0,
+                          right: 0,
+                          zIndex: 1000,
+                          maxHeight: 200,
+                          overflow: 'auto',
+                          mt: 1,
+                          border: '1px solid #333',
+                        }}
+                      >
+                        {inputSuggestions.map((hero, index) => (
+                          <Box
+                            key={index}
+                            sx={{
+                              p: 1.5,
+                              cursor: 'pointer',
+                              '&:hover': {
+                                bgcolor: 'primary.main',
+                                color: 'black',
+                              },
+                              borderBottom: index < inputSuggestions.length - 1 ? '1px solid #333' : 'none',
+                            }}
+                            onClick={() => {
+                              const parts = input.split(',');
+                              parts[parts.length - 1] = hero;
+                              setInput(parts.join(', ') + ', ');
+                              setShowSuggestions(false);
+                            }}
+                          >
+                            <Typography variant="body2">{hero}</Typography>
+                          </Box>
+                        ))}
+                      </Paper>
+                    )}
+                  </Box>
+
                   <ButtonGroup variant="outlined">
                     <Button
                       variant={strategy === "frequency" ? "contained" : "outlined"}
@@ -521,15 +622,19 @@ export default function App() {
                   </Alert>
                 ) : (
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
-                    {suggestions.map((h) => (
+                    {suggestions.map((suggestion, index) => (
                       <Chip
-                        key={h}
-                        label={h}
+                        key={suggestion.name}
+                        label={`${index + 1}. ${suggestion.name} (${suggestion.score})`}
                         variant="outlined"
                         color="primary"
                         sx={{
-                          background: 'linear-gradient(145deg, #1a1a1a, #2a2a2a)',
+                          background: index < 3
+                            ? 'linear-gradient(145deg, #d4af37, #b06500)'
+                            : 'linear-gradient(145deg, #1a1a1a, #2a2a2a)',
                           border: '1px solid #d4af37',
+                          color: index < 3 ? 'black' : 'inherit',
+                          fontWeight: index < 3 ? 'bold' : 'normal',
                         }}
                       />
                     ))}
