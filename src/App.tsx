@@ -984,7 +984,7 @@ export default function App() {
                     <Pagination
                       count={totalPages}
                       page={currentPage}
-                      onChange={(event, page) => setCurrentPage(page)}
+                      onChange={(_event, page) => setCurrentPage(page)}
                       color="primary"
                       size="large"
                       showFirstButton
