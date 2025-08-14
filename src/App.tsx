@@ -268,7 +268,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Arial", "Helvetica", sans-serif',
+    fontFamily: '"Russo One", sans-serif',
     h1: {
       fontWeight: 700,
     },
@@ -886,7 +886,7 @@ export default function App() {
                   <Typography variant="body2" gutterBottom>
                     Format per baris: <code>Enemy A, Enemy B - Our X, Our Y</code>
                   </Typography>
-                  <Paper sx={{ p: 2, bgcolor: 'background.default', fontFamily: 'monospace', fontSize: '0.875rem' }}>
+                  <Paper sx={{ p: 2, bgcolor: 'background.default', fontFamily: '"Russo One", sans-serif', fontSize: '0.875rem' }}>
                     {`Contoh:
 Hero A - Counter A
 Hero B - Counter B
@@ -920,7 +920,7 @@ Hero B - Counter B
               variant="outlined"
               sx={{
                 '& .MuiInputBase-input': {
-                  fontFamily: 'monospace',
+                  fontFamily: '"Russo One", sans-serif',
                   fontSize: '0.875rem',
                 },
               }}
